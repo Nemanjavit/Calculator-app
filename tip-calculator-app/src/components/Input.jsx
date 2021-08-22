@@ -1,19 +1,18 @@
-import React from 'react'
-import styled from 'styled-components';
+import React from "react";
+import Dollar from "../svgs/Dollar";
+import Person from "../svgs/Person";
 
+const Input = ({ label, id, message }) => {
+	console.log(label);
+	return (
+		<>
+			<label htmlFor={id}>{label}</label>
+			<span className="warning">{message}sadsada</span>
+			{id === "bill" && <Dollar />}
+			{id === "person" && <Person />}
+			<input id={id} type="number" />
+		</>
+	);
+};
 
-const StyledInput=styled.input`
-width:30%;
-border:transparent;
-background-color:#f3f8fb;
-outline-color:#64b4aa;`
-
-const Input = () => {
-    
-
-
-
-    return (  <StyledInput type='number'/>);
-}
- 
 export default Input;

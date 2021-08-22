@@ -1,0 +1,119 @@
+// colors
+$darkCyan: #00474b;
+$lightCyan: #9fe8df;
+$greenSheen: #5da99f;
+$aliceBlue: #f3f8fb;
+$middleRed: #d88370;
+
+@import url("https://fonts.googleapis.com/css2?family=Space+Mono:wght@400;700&display=swap");
+
+* {
+	margin: 0;
+	padding: 0;
+	box-sizing: border-box;
+}
+
+body {
+	text-align: center;
+	display: flex;
+	justify-content: center;
+	align-items: center;
+	height: 100vh;
+	background-color: hsl(185, 41%, 84%);
+	font-family: "Space Mono", monospace;
+}
+#root {
+	width: 100%;
+}
+.App {
+	width: 65%;
+	display: block;
+	margin: 0 auto;
+}
+input::-webkit-outer-spin-button,
+input::-webkit-inner-spin-button {
+	-webkit-appearance: none;
+	margin: 0;
+}
+
+.input__section {
+	padding-right: 40px;
+	padding-top: 10px;
+	padding-bottom: 10px;
+}
+.main {
+	background-color: white;
+	padding: 45px;
+	border-radius: 15px;
+
+	.input__wrapper {
+		position: relative;
+
+		label {
+			text-align: left;
+			width: 50%;
+			display: inline-block;
+			margin-bottom: 5px;
+			font-weight: 700;
+		}
+		.warning {
+			width: 50%;
+			display: inline-block;
+			text-align: right;
+			color: $middleRed;
+		}
+
+		input {
+			font-size: 24px;
+			display: block;
+			width: 100%;
+			border: none;
+			height: 57px;
+			background-color: $aliceBlue;
+			text-align: right;
+			padding-right: 10px;
+			border-radius: 5px;
+		}
+
+		svg {
+			position: absolute;
+			bottom: 25%;
+			left: 4%;
+		}
+
+		input:focus {
+			outline-color: $greenSheen;
+		}
+		&.person {
+			margin-top: 60px;
+		}
+	}
+}
+h4 {
+	margin-top: 60px;
+	font-size: 15px;
+}
+.button__section {
+	margin: 0px !important;
+	justify-content: space-between !important;
+
+	&__heading {
+		text-align: left;
+		margin-bottom: 5px;
+	}
+	.button {
+		width: 100%;
+		margin: 8px 0;
+		background-color: $darkCyan;
+		color: white;
+		height: 62px;
+		border-radius: 5px;
+		border: none;
+		font-size: 25px;
+	}
+}
+
+.display__section {
+	background-color: $darkCyan;
+	border-radius: 15px;
+}

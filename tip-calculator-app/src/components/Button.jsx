@@ -1,10 +1,12 @@
 import React from "react";
 import { Col } from "react-grid-system";
 
-const Button = (props) => {
+const Button = ({ name, clickHandler }) => {
 	return (
 		<div style={{ width: "30%" }}>
-			<button className="button">{props.name}</button>
+			<button onClick={clickHandler} className="button">
+				{name}
+			</button>
 		</div>
 	);
 };

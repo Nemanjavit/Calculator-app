@@ -1,6 +1,6 @@
 import { useState, useEffect } from "react";
 import { Container, Row, Col } from "react-grid-system";
-import "./App.scss";
+import "./css/App.css";
 import Button from "./components/Button";
 import Input from "./components/Input";
 import Dollar from "./svgs/Dollar";

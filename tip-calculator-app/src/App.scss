@@ -5,6 +5,8 @@ $greenSheen: #5da99f;
 $aliceBlue: #f3f8fb;
 $middleRed: #d88370;
 $keppel: #26c2ad;
+$ming: #517476;
+$grayishcyan: hsl(189, 41%, 97%);
 
 @import url("https://fonts.googleapis.com/css2?family=Space+Mono:wght@400;700&display=swap");
 
@@ -20,28 +22,28 @@ body {
 	display: flex;
 	justify-content: center;
 	align-items: center;
-	height: 100vh;
 	background-color: hsl(185, 41%, 84%);
 }
 
-#root {
-	width: 100%;
-}
-.App {
-	width: 65%;
-	display: block;
-	margin: 0 auto;
-}
-input::-webkit-outer-spin-button,
-input::-webkit-inner-spin-button {
-	-webkit-appearance: none;
-	margin: 0;
+input[type="number"] {
+	-moz-appearance: textfield; /*For FireFox*/
+
+	&::-webkit-inner-spin-button {
+		/*For Webkits like Chrome and Safari*/
+		-webkit-appearance: none;
+		margin: 0;
+	}
 }
 
 .input__section {
 	padding-right: 40px;
 	padding-top: 10px;
 	padding-bottom: 10px;
+}
+
+.app__heading {
+	margin: 100px 0;
+	color: $ming;
 }
 .main {
 	background-color: white;
@@ -57,6 +59,7 @@ input::-webkit-inner-spin-button {
 			display: inline-block;
 			margin-bottom: 5px;
 			font-weight: 700;
+			color: $ming;
 		}
 		.warning {
 			width: 50%;
@@ -65,38 +68,54 @@ input::-webkit-inner-spin-button {
 			color: $middleRed;
 		}
 
-		input {
-			font-size: 24px;
-			font-family: "Space Mono", monospace;
-			font-weight: 700;
-			display: block;
-			width: 100%;
-			border: none;
-			height: 57px;
-			background-color: $aliceBlue;
-			text-align: right;
-			padding-right: 10px;
-			border-radius: 5px;
-		}
-
 		svg {
 			position: absolute;
 			bottom: 25%;
 			left: 4%;
 		}
 
-		input:focus {
-			outline-color: $greenSheen;
-		}
 		&.person {
 			margin-top: 60px;
 		}
 	}
 }
+
+.input {
+	font-size: 24px;
+	font-family: "Space Mono", monospace;
+	font-weight: 700;
+	display: block;
+	width: 100%;
+	border: none;
+	height: 57px;
+	background-color: $aliceBlue;
+	text-align: right;
+	padding-right: 10px;
+	border-radius: 5px;
+	color: $darkCyan;
+
+	&:focus {
+		outline-color: $greenSheen;
+		-moz-outline-color: $greenSheen;
+	}
+	&:-moz-focusring {
+		outline: 1px solid $greenSheen;
+	}
+}
+
+.customInput {
+	margin-top: 14px;
+	height: 62px;
+	text-align: center;
+	font-size: 20px;
+	color: $ming;
+}
+
 h4 {
 	margin-top: 60px;
 	font-size: 15px;
 }
+
 .button__section {
 	margin: 0px !important;
 	justify-content: space-between !important;
@@ -114,6 +133,7 @@ h4 {
 		border-radius: 5px;
 		border: none;
 		font-size: 25px;
+		font-weight: 700;
 
 		&:hover {
 			background-color: $lightCyan;
@@ -136,16 +156,46 @@ h4 {
 	flex-direction: column;
 	justify-content: space-between;
 
-	h3,
+	h3 {
+		color: $grayishcyan;
+		text-align: left;
+	}
+
+	h2 {
+		font-size: 40px;
+		color: $keppel;
+		display: inline;
+		position: relative;
+		padding: 0 5px;
+	}
+
 	p {
 		text-align: left;
-		color: $keppel;
+		color: $ming;
+	}
+
+	.tipSvg {
+		transform: scale(2);
+		position: absolute;
+		right: 110%;
+		top: 38%;
+
+		path {
+			fill: $keppel;
+		}
+	}
+
+	.amount {
+		h3 {
+			font-size: 14px;
+		}
 	}
 }
+
 .resetButton {
 	width: 80%;
 	display: block;
-	margin: 0 auto;
+	margin: 150px auto 0 auto;
 	height: 50px;
 	border-radius: 5px;
 	border: none;
@@ -154,13 +204,35 @@ h4 {
 	font-weight: 700;
 	background-color: $lightCyan;
 	opacity: 0.2;
-	cursor: pointer;
-
-	&:hover {
-		opacity: 1;
-	}
 
 	&.btn-active {
 		background-color: $keppel;
+		opacity: 1;
+		cursor: pointer;
+		&:hover {
+			background-color: $lightCyan;
+		}
+	}
+}
+
+@media screen and (max-width: 1400px) {
+	.input__section {
+		padding-right: 0px;
+		margin-bottom: 30px;
+	}
+
+	.main {
+		padding: 20px;
+	}
+}
+
+@media screen and (max-width: 767px) {
+	.App {
+		width: 100%;
+	}
+	.display__section {
+		.tipSvg {
+			transform: scale(1.8);
+		}
 	}
 }
